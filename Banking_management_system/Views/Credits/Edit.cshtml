@@ -1,0 +1,84 @@
+﻿@model Banking_management_system.Models.Credit
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Credit</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Approved" /> @Html.DisplayNameFor(model => model.Approved)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="OpenedTime" class="control-label"></label>
+                <select asp-for="OpenedTime" class="form-control"></select>
+                <span asp-validation-for="OpenedTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClosedTime" class="control-label"></label>
+                <select asp-for="ClosedTime" class="form-control"></select>
+                <span asp-validation-for="ClosedTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TotalMonths" class="control-label"></label>
+                <input asp-for="TotalMonths" class="form-control" />
+                <span asp-validation-for="TotalMonths" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientID" class="control-label"></label>
+                <select asp-for="ClientID" class="form-control" asp-items="ViewBag.ClientID"></select>
+                <span asp-validation-for="ClientID" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="Fines" class="control-label"></label>
+                <input asp-for="Fines" class="form-control" />
+                <span asp-validation-for="Fines" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Money" class="control-label"></label>
+                <input asp-for="Money" class="form-control" />
+                <span asp-validation-for="Money" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MoneyWithPercentage" class="control-label"></label>
+                <input asp-for="MoneyWithPercentage" class="form-control" />
+                <span asp-validation-for="MoneyWithPercentage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MoneyPaid" class="control-label"></label>
+                <input asp-for="MoneyPaid" class="form-control" />
+                <span asp-validation-for="MoneyPaid" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MonthsPassed" class="control-label"></label>
+                <input asp-for="MonthsPassed" class="form-control" />
+                <span asp-validation-for="MonthsPassed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Percentage" class="control-label"></label>
+                <input asp-for="Percentage" class="form-control" />
+                <span asp-validation-for="Percentage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

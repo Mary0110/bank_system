@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Banking_management_system.Models.Credit>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Approved)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OpenedTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClosedTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalMonths)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fines)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Money)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoneyWithPercentage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MoneyPaid)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MonthsPassed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Percentage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Approved)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OpenedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClosedTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalMonths)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fines)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Money)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoneyWithPercentage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoneyPaid)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MonthsPassed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Percentage)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
