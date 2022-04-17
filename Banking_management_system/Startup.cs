@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Banking_management_system.Data;
+using Microsoft.AspNetCore.Identity;
 
 namespace Banking_management_system
 {
@@ -31,6 +32,8 @@ namespace Banking_management_system
                     options.UseSqlServer(Configuration.GetConnectionString("Banking_management_systemContext")));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddDefaultIdentity<IdentityUser>().AddEntityFrameworkStores<Banking_management_systemContext>();
+
 
         }
 
@@ -51,15 +54,22 @@ namespace Banking_management_system
             app.UseStaticFiles();
 
             app.UseRouting();
+            app.UseAuthentication();
 
             app.UseAuthorization();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
+            /*app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });*/
         }
     }
 }

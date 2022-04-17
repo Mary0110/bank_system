@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Banking_management_system.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace Banking_management_system.Data
 {
-    public class Banking_management_systemContext : DbContext
+    public class Banking_management_systemContext : IdentityDbContext<IdentityUser>
     {
         public Banking_management_systemContext (DbContextOptions<Banking_management_systemContext> options)
             : base(options)
@@ -40,6 +42,7 @@ namespace Banking_management_system.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<Admin>().ToTable("Admin");
             modelBuilder.Entity<Balance>().ToTable("Balance");
             modelBuilder.Entity<Bank>().ToTable("Bank");
